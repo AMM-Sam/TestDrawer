@@ -1,10 +1,12 @@
 package ir.javafundamental.android.testdrawer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -18,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Button btn_OpenDrawer = (Button)findViewById(R.id.btn_showDrawer);
+        btn_OpenDrawer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout nv = (DrawerLayout)findViewById(R.id.activity_main);
+                nv.openDrawer(Gravity.RIGHT);
+            }
+        });
 
         WebView wv_Main = (WebView)findViewById(R.id.wv_Main);
         wv_Main.getSettings().setJavaScriptEnabled(true);

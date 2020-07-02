@@ -13,6 +13,12 @@
         android:gravity="top|center_horizontal|center_vertical"
         android:orientation="vertical">
 
+        <Button
+            android:id="@+id/btn_showDrawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Open_Drawer" />
 
         <ir.javafundamental.android.testdrawer.CustomTextView
             android:layout_width="wrap_content"
