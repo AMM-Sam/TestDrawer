@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TestDrawer</string>
+    <string name="Show_Toast">Show Toast</string>
+    <string name="B_Titr">BTITRBD.ttf</string>
+    <string name="MyName">محمد سمانگی</string>
+    <string name="TestText">This is a Test</string>
+</resources>
