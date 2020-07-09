@@ -1,12 +1,17 @@
 package ir.javafundamental.android.testdrawer;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -30,23 +35,49 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        WebView wv_Main = (WebView)findViewById(R.id.wv_Main);
-        wv_Main.getSettings().setJavaScriptEnabled(true);
-        wv_Main.loadUrl("https://www.ibm.com/bg-en");
+        Button btn_showCallActivity = (Button) findViewById(R.id.btn_showCallActivity);
+        Button btn_showVideoActivity = (Button) findViewById(R.id.btn_showVideoActivity);
+        Button btn_showWebActivity = (Button) findViewById(R.id.btn_showWebActivity);
 
-        VideoView vv_Main = findViewById(R.id.vv_Main);
-        final MediaController mediacontroller = new MediaController(this);
-        mediacontroller.setAnchorView(vv_Main);
-        vv_Main.setMediaController(mediacontroller);
-        vv_Main.setVideoURI(Uri.parse("https://s-v4.tamasha.com/statics/videos_file/c8/f7/lEy6P_c8f7743b9c43048a7cd4c4f09b3c9dc770f3536e_n_360.mp4"));
-        vv_Main.start();
-
-        Button btn1 = (Button) findViewById(R.id.btn_showToast);
-        btn1.setOnClickListener(new View.OnClickListener() {
+        btn_showCallActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "This is a Test" , Toast.LENGTH_SHORT ).show();
+                Intent intent = new Intent(MainActivity.this, CallActivity.class);
+                startActivity(intent);
             }
         });
+        btn_showVideoActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VideoViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn_showWebActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.mnu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.mnu_Profile: {
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intent);
+                break;
+            }
+        }
+        return true;
     }
 }

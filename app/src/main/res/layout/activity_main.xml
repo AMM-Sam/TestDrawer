@@ -27,17 +27,6 @@
             android:text="@string/MyName"
             android:id="@+id/txtMyCustomTextView"/>
 
-        <WebView
-            android:id="@+id/wv_Main"
-            android:layout_width="match_parent"
-            android:layout_height="300dp" >
-        </WebView>
-
-        <VideoView
-            android:id="@+id/vv_Main"
-            android:layout_width="match_parent"
-            android:layout_height="150dp" />
-
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -50,15 +39,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
+            android:gravity="center|top"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_showToast"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_showVideoActivity"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/Show_Toast" />
+                android:layout_margin="10dp"
+                android:text="@string/VideoActivity" />
+
+            <Button
+                android:id="@+id/btn_showWebActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/WebActivity" />
+
+            <Button
+                android:id="@+id/btn_showCallActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/CallActivity" />
         </LinearLayout>
 
 

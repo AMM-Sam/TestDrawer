@@ -5,4 +5,17 @@
     <string name="MyName">محمد سمانگی</string>
     <string name="TestText">This is a Test</string>
     <string name="Open_Drawer">OpenDrawer</string>
+    <string name="Call">Call</string>
+    <string name="Phone_Number">شماره تماس را وارد نمایید</string>
+    <string name="Name">نام</string>
+    <string name="Family">نام خانوادگی</string>
+    <string name="Age">سن</string>
+    <string name="Mail">ایمیل</string>
+    <string name="Save">Save</string>
+    <string name="CallActivity">Call Activity</string>
+    <string name="WebActivity">Web Activity</string>
+    <string name="VideoActivity">Video Activity</string>
+    <string name="Alarm_Title">اطلاعات شما با موفقیت ثبت شد</string>
+    <string name="Alarm_Description">ااطلاعات شما در بانک ذخیر شد</string>
+
 </resources>
