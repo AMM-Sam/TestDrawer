@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TestDrawer</string>
+    <string name="app_name">M.Samangi</string>
     <string name="Show_Toast">Show Toast</string>
     <string name="B_Titr">BTITRBD.ttf</string>
     <string name="MyName">محمد سمانگی</string>
@@ -17,5 +17,7 @@
     <string name="VideoActivity">Video Activity</string>
     <string name="Alarm_Title">اطلاعات شما با موفقیت ثبت شد</string>
     <string name="Alarm_Description">ااطلاعات شما در بانک ذخیر شد</string>
-
+    <string name="StartService">StartService</string>
+    <string name="StopService">StopService</string>
+    <string name="Broadcast">Broadcast</string>
 </resources>

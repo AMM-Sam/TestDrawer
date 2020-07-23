@@ -27,6 +27,8 @@
             android:text="@string/MyName"
             android:id="@+id/txtMyCustomTextView"/>
 
+
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
@@ -35,40 +37,14 @@
         android:layout_gravity="end"
         android:id="@+id/nv">
 
-
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_recycler_view"
+            android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center|top"
-            android:layout_margin="20dp"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/btn_showVideoActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/VideoActivity" />
-
-            <Button
-                android:id="@+id/btn_showWebActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/WebActivity" />
-
-            <Button
-                android:id="@+id/btn_showCallActivity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/CallActivity" />
-        </LinearLayout>
-
-
+        </androidx.recyclerview.widget.RecyclerView>
 
     </com.google.android.material.navigation.NavigationView>
-
-
 
 </androidx.drawerlayout.widget.DrawerLayout>
