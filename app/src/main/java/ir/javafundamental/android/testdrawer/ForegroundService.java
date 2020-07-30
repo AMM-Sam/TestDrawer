@@ -37,7 +37,7 @@ public class ForegroundService extends Service
                 .build();
         startForeground(1, notification);
 
-        //ShowToast();
+        ShowToast();
 
         //do heavy work on a background thread
         //stopSelf();

@@ -20,4 +20,8 @@
     <string name="StartService">StartService</string>
     <string name="StopService">StopService</string>
     <string name="Broadcast">Broadcast</string>
+    <string name="type">Type:</string>
+    <string name="lat">Lat:</string>
+    <string name="lng">Lng:</string>
+    <string name="bearing">Bearing:</string>
 </resources>

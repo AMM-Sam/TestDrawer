@@ -26,7 +26,14 @@ import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.loopj.android.http.*;
+
 import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 public class MainActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener {
 
@@ -65,6 +72,53 @@ public class MainActivity extends AppCompatActivity implements MyRecyclerViewAda
         recyclerView.setAdapter(adapter);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), new LinearLayoutManager(this).getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
+        //*********************************************************************
+        AsyncHttpClient client = new AsyncHttpClient();
+        client.get("https://pouyaheydari.com/vehicles.json", null, new TextHttpResponseHandler() {
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                JsonTest dto_empty = new JsonTest();
+                RecyclerView recyclerViewJson = findViewById(R.id.my_recyclerJson_view);
+                recyclerViewJson.setHasFixedSize(true);
+                //recyclerViewJson.LayoutManager layoutManager = new LinearLayoutManager(this);
+                //recyclerViewJson.setLayoutManager(layoutManager);
+                recyclerViewJson.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                MyRecyclerViewJsonAdapter adapterJson = new MyRecyclerViewJsonAdapter(MainActivity.this, dto_empty.getVehicles());
+                recyclerViewJson.setAdapter(adapterJson);
+                //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerViewJson.getContext(), new LinearLayoutManager(this).getOrientation());
+                //recyclerViewJson.addItemDecoration(dividerItemDecoration);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String responseString) {
+                GsonBuilder builder = new GsonBuilder();
+                builder.setPrettyPrinting();
+                Gson gson = builder.create();
+                JsonTest dto_jsonTest = gson.fromJson(responseString, JsonTest.class);
+
+                RecyclerView recyclerViewJson = findViewById(R.id.my_recyclerJson_view);
+                recyclerViewJson.setHasFixedSize(true);
+                //recyclerViewJson.LayoutManager layoutManager = new LinearLayoutManager(this);
+                //recyclerViewJson.setLayoutManager(layoutManager);
+                recyclerViewJson.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                MyRecyclerViewJsonAdapter adapterJson = new MyRecyclerViewJsonAdapter(MainActivity.this, dto_jsonTest.getVehicles());
+                recyclerViewJson.setAdapter(adapterJson);
+                //DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerViewJson.getContext(), new LinearLayoutManager(this).getOrientation());
+                //recyclerViewJson.addItemDecoration(dividerItemDecoration);
+            }
+
+            @Override
+            public void onStart() {
+                // called before request is started
+            }
+
+            @Override
+            public void onRetry(int retryNo) {
+                // called when request is retried
+            }
+        });
+
 
         /*
         Button btn_showCallActivity = (Button) findViewById(R.id.btn_showCallActivity);
